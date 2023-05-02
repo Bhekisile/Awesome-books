@@ -2,32 +2,15 @@ const container = document.querySelector('.container');
 const addBtn = document.querySelector('#add');
 let bookCollection = JSON.parse(localStorage.getItem('bookCollection')) || [];
 
-// Function to remove a book
-function removeBook(book) {
-  bookCollection = bookCollection.filter((b) => b !== book);
-  localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
-}
-
-// Function to display all books in the collection
-function displayBooks() {
-  container.innerHTML = '';
-  bookCollection.forEach((book) => {
-    const newBook = document.createElement('div');
-    newBook.innerHTML = `<h2>${book.title}</h2><p>by ${book.author}</p><button class="remove">Remove</button><hr>`;
-    container.appendChild(newBook);
-
-    // Adding event listener to the "Remove" button
-    const removeBtn = newBook.querySelector('.remove');
-    removeBtn.addEventListener('click', () => {
-      removeBook(book);
-      newBook.remove();
-    });
-  });
+// the constructor
+function Book(title, author) {
+  this.title = title;
+  this.author = author;
 }
 
 // Function to add a new book
 function addBook(title, author) {
-  const newBook = { title, author };
+  let newBook = new Book(title, author);
   bookCollection.push(newBook);
   localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
   displayBooks();
@@ -46,5 +29,31 @@ addBtn.addEventListener('click', () => {
   titleInput.value = '';
   authorInput.value = '';
 });
+
+// Function to remove a book
+function removeBook(book) {
+  bookCollection = bookCollection.filter((b) => b !== book);
+  localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
+}
+
+// Function to display all books in the collection
+function displayBooks() {
+  container.innerHTML = '';
+  bookCollection.forEach((book) => {
+    const newBook = document.createElement('div');
+    newBook.classList.add('newBook');
+    newBook.innerHTML = `<p>${book.title} by ${book.author}</p>
+                        <button class="remove">Remove</button>`;
+    container.appendChild(newBook);
+
+    // Adding event listener to the "Remove" button
+    const removeBtn = newBook.querySelector('.remove');
+    removeBtn.addEventListener('click', () => {
+      removeBook(book);
+      newBook.remove();
+    });
+  });
+}
+
 
 displayBooks();
