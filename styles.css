@@ -16,7 +16,7 @@
     margin-left: 157px;
     margin-top: 3px;
     background-color: transparent;
-    box-shadow: 5px 5px black;
+    box-shadow: 3px 5px black;
 }
 
 #title {
@@ -77,7 +77,9 @@ h3 {
 
 .remove {
   width: 100px;
+  height: 20px;
   background-color: transparent;
   border: 1px solid black;
-  box-shadow: 5px 5px black;
+  box-shadow: 3px 5px black;
+  margin-top: 0;
 }
