@@ -1,12 +1,22 @@
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #add {
     margin-left: 157px;
     margin-top: 3px;
     background-color: transparent;
+    box-shadow: 5px 5px black;
 }
 
 #title {
@@ -69,4 +79,5 @@ h3 {
   width: 100px;
   background-color: transparent;
   border: 1px solid black;
+  box-shadow: 5px 5px black;
 }
