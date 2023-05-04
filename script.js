@@ -13,7 +13,7 @@ function addBook(title, author) {
   let newBook = new Book(title, author);
   bookCollection.push(newBook);
   localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
-  displayBooks();
+  // displayBooks();
 }
 
 // Add an event listener to the "Add" button
@@ -32,7 +32,7 @@ addBtn.addEventListener('click', () => {
 
 // Function to remove a book
 function removeBook(book) {
-  bookCollection = bookCollection.filter((b) => b !== book);
+  bookCollection.filter((b) => b !== book);
   localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
 }
 
@@ -49,11 +49,41 @@ function displayBooks() {
     // Adding event listener to the "Remove" button
     const removeBtn = newBook.querySelector('.remove');
     removeBtn.addEventListener('click', () => {
+      console.log('removed');
       removeBook(book);
       newBook.remove();
     });
   });
 }
-
-
 displayBooks();
+
+const links = document.querySelectorAll('.links'); /// create array of element objects
+
+        links.forEach(link => { // lopp through them
+            link.addEventListener('click', function handleClick(event) {
+             
+
+                var list = document.getElementById('books-list'); 
+                var form = document.getElementById('add-book');
+                var contact = document.getElementById('contact-cont'); 
+
+                if(this.id==="linkList"){
+                  list.style.display = 'block';
+                } else {
+                  list.style.display = 'none';
+                }
+                if(this.id==="linkAdd"){
+                  form.style.display = 'block';
+                } else {
+                  form.style.display = 'none';
+                }
+                if(this.id==="linkCont"){
+                  contact.style.display = 'block';
+                } else {
+                  contact.style.display = 'none';
+                }
+
+              });
+            });
+
+                    
