@@ -1,6 +1,6 @@
 const container = document.querySelector('.container');
 const addBtn = document.querySelector('#add');
-let bookCollection = JSON.parse(localStorage.getItem('bookCollection')) || [];
+const bookCollection = JSON.parse(localStorage.getItem('bookCollection')) || [];
 
 // the constructor
 function Book(title, author) {
@@ -10,7 +10,7 @@ function Book(title, author) {
 
 // Function to add a new book
 function addBook(title, author) {
-  let newBook = new Book(title, author);
+  const newBook = new Book(title, author);
   bookCollection.push(newBook);
   localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
   // displayBooks();
@@ -59,31 +59,26 @@ displayBooks();
 
 const links = document.querySelectorAll('.links'); /// create array of element objects
 
-        links.forEach(link => { // lopp through them
-            link.addEventListener('click', function handleClick(event) {
-             
+links.forEach((link) => { // lopp through them
+  link.addEventListener('click', function handleClick(event) {
+    const list = document.getElementById('books-list');
+    const form = document.getElementById('add-book');
+    const contact = document.getElementById('contact-cont');
 
-                var list = document.getElementById('books-list'); 
-                var form = document.getElementById('add-book');
-                var contact = document.getElementById('contact-cont'); 
-
-                if(this.id==="linkList"){
-                  list.style.display = 'block';
-                } else {
-                  list.style.display = 'none';
-                }
-                if(this.id==="linkAdd"){
-                  form.style.display = 'block';
-                } else {
-                  form.style.display = 'none';
-                }
-                if(this.id==="linkCont"){
-                  contact.style.display = 'block';
-                } else {
-                  contact.style.display = 'none';
-                }
-
-              });
-            });
-
-                    
+    if (this.id === 'linkList') {
+      list.style.display = 'block';
+    } else {
+      list.style.display = 'none';
+    }
+    if (this.id === 'linkAdd') {
+      form.style.display = 'block';
+    } else {
+      form.style.display = 'none';
+    }
+    if (this.id === 'linkCont') {
+      contact.style.display = 'block';
+    } else {
+      contact.style.display = 'none';
+    }
+  });
+});
