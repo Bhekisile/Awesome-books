@@ -57,9 +57,6 @@ form h2 {
   width: 98%;
   min-height: 30px;
   margin-bottom: 48px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  font-weight: 500;
   border: 1px solid black;
   margin-left: 6px;
 }
@@ -70,7 +67,7 @@ form h2 {
   align-items: center;
   font-size: 18px;
   font-weight: 500;
-  height: 40px;
+  height: 35px;
   width: 100%;
   margin-left: 0;
 }
@@ -87,9 +84,9 @@ form h2 {
 
 .newBook p {
   display: flex;
-  align-items: center;
   height: 20px;
   font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
 
@@ -172,7 +169,7 @@ form h2 {
 .det ul {
   display: flex;
   flex-direction: column;
-  list-style-type: '- ';
+  list-style-type: "- ";
   margin-top: 10px;
   margin-left: 20px;
 }
@@ -180,7 +177,7 @@ form h2 {
 .footer {
   height: 30px;
   width: 100%;
-  position: relative;
+  position: fixed;
   bottom: 0;
   font-family: Arial, Helvetica, sans-serif;
   border: 1px solid black;

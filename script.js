@@ -1,19 +1,37 @@
 const container = document.querySelector('.container');
 const addBtn = document.querySelector('#add');
-const bookCollection = JSON.parse(localStorage.getItem('bookCollection')) || [];
+let bookCollection = JSON.parse(localStorage.getItem('bookCollection')) || [];
 
-// the constructor
-function Book(title, author) {
-  this.title = title;
-  this.author = author;
+// Function to remove a book
+function removeBook(book) {
+  bookCollection = bookCollection.filter((b) => b !== book);
+  localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
+}
+
+// Function to display all books in the collection
+function displayBooks() {
+  container.innerHTML = '';
+  bookCollection.forEach((book) => {
+    const newBook = document.createElement('div');
+    newBook.classList.add('newBook');
+    newBook.innerHTML = `<p>${book.title} by ${book.author}</p><button class="remove">Remove</button>`;
+    container.appendChild(newBook);
+
+    // Adding event listener to the "Remove" button
+    const removeBtn = newBook.querySelector('.remove');
+    removeBtn.addEventListener('click', () => {
+      removeBook(book);
+      newBook.remove();
+    });
+  });
 }
 
 // Function to add a new book
 function addBook(title, author) {
-  const newBook = new Book(title, author);
+  const newBook = { title, author };
   bookCollection.push(newBook);
   localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
-  // displayBooks();
+  displayBooks();
 }
 
 // Add an event listener to the "Add" button
@@ -30,37 +48,11 @@ addBtn.addEventListener('click', () => {
   authorInput.value = '';
 });
 
-// Function to remove a book
-function removeBook(book) {
-  bookCollection.filter((b) => b !== book);
-  localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
-}
-
-// Function to display all books in the collection
-function displayBooks() {
-  container.innerHTML = '';
-  bookCollection.forEach((book) => {
-    const newBook = document.createElement('div');
-    newBook.classList.add('newBook');
-    newBook.innerHTML = `<p>${book.title} by ${book.author}</p>
-                        <button class="remove">Remove</button>`;
-    container.appendChild(newBook);
-
-    // Adding event listener to the "Remove" button
-    const removeBtn = newBook.querySelector('.remove');
-    removeBtn.addEventListener('click', () => {
-      console.log('removed');
-      removeBook(book);
-      newBook.remove();
-    });
-  });
-}
 displayBooks();
 
 const links = document.querySelectorAll('.links'); /// create array of element objects
-
-links.forEach((link) => { // lopp through them
-  link.addEventListener('click', function handleClick(event) {
+links.forEach((link) => { // loop through them
+  link.addEventListener('click', function handleClick() {
     const list = document.getElementById('books-list');
     const form = document.getElementById('add-book');
     const contact = document.getElementById('contact-cont');
