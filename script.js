@@ -57,15 +57,15 @@ addBtn.addEventListener('click', (event) => {
   authorInput.value = '';
 });
 
-// const dates = document.querySelectorAll('.date');
-// dates.forEach((date) => {
-//   const today = new Date();
-//   const time = today.toLocaleTimeString();
-//   const day = today.toLocaleDateString('en-us', {
-//     year: 'numeric', month: 'long', day: 'numeric',
-//   });
-//   date.textContent = `${day} ${time}`;
-// });
+const dates = document.querySelectorAll('.date');
+dates.forEach((date) => {
+  const today = new Date();
+  const time = today.toLocaleTimeString();
+  const day = today.toLocaleDateString('en-us', {
+    year: 'numeric', month: 'long', day: 'numeric',
+  });
+  date.textContent = `${day} ${time}`;
+});
 
 const links = document.querySelectorAll('.links'); /// create array of element objects
 links.forEach((link) => { // loop through them

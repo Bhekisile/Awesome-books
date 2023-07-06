@@ -142,6 +142,10 @@ input {
 .date {
   font-family: "Roboto", sans-serif;
   font-weight: 600;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  font-size: 16px;
 }
 
 .nav ul {
@@ -151,13 +155,6 @@ input {
   margin-right: 30px;
   height: 20px;
   gap: 6px;
-}
-
-.date {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 20px;
-  font-size: 16px;
 }
 
 .cont {
@@ -196,7 +193,6 @@ input {
   width: 98%;
   position: fixed;
   bottom: 0;
-  /* left: 0; */
   font-family: "Roboto", sans-serif;
   border: 3px solid rgb(100, 100, 100);
   font-size: 16px;
