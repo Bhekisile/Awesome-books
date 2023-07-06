@@ -1,4 +1,3 @@
-
 <!-- TABLE OF CONTENTS -->
 
 # 📗 Table of Contents
@@ -27,7 +26,7 @@
 
 > Describe your project in 1 or 2 sentences.
 
-**[Awesome book]** is the library website that allows users to add and remove books from the list.
+**[Awesome book]** is a single-page library project that allows the addition and removal of books. It contains pages for adding a book, a list of books and contact details.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -47,9 +46,9 @@
 ### Key Features <a name="key-features"></a>
 
 - **[Home Page]**
+- **[Navigation bar]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <!-- LIVE DEMO -->
 
@@ -67,21 +66,19 @@ To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need: 
+In order to run this project you need:
 
 Live Server
-npm
 
 ### Setup
 
 Clone this repository to your desired folder:
 
--git clone 
+-git clone
 
 ### Install
 
 Install this project with:
-
 
 ### Usage
 
@@ -90,7 +87,7 @@ Live Server
 
 ### Deployment
 
-You can deploy this project using: 
+You can deploy this project using:
 
 Netlify
 Github Page
@@ -102,7 +99,8 @@ Github Page
 ## 👥 Authors <a name="authors"></a>
 
 👤 **Bhekisile Jozi**
-   **Maryam Bakhtawar**
+
+---
 
 - GitHub: [@githubhandle](https://github.com/bhekisile)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/bhekisile-jozi-b9823369/)

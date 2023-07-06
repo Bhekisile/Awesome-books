@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
 #add {
@@ -12,6 +11,8 @@
   box-shadow: 3px 5px black;
   width: 45px;
   height: 30px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
 }
 
 #title {
@@ -26,56 +27,64 @@
 }
 
 h2 {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   width: 95%;
   text-align: center;
   font-weight: 700;
   font-size: 36px;
-  margin-bottom: 36px;
+  margin-top: 50px;
 }
 
 form {
   width: 400px;
   height: 300px;
   margin-bottom: 100px;
-  margin-top: 150px;
+  margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
-  font-size: 18px;
+  font-size: 26px;
   font-weight: 500;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 form h2 {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   font-size: 36px;
   font-weight: 700;
+  font-family: "Roboto", sans-serif;
+}
+
+input {
+  border: 1px solid black;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
 }
 
 .container {
   width: 98%;
-  min-height: 30px;
-  margin-bottom: 48px;
+  min-height: 2px;
+  margin-left: 10px;
   border: 1px solid black;
-  margin-left: 6px;
 }
 
 .newBook {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 18px;
+  font-family: "Roboto", sans-serif;
+  font-size: 26px;
   font-weight: 500;
   height: 35px;
   width: 100%;
-  margin-left: 0;
+  padding-right: 16px;
+  border-bottom: 1px solid black;
 }
 
 .books-list {
   width: 100%;
-  height: 440px;
-  margin: 80px auto;
+  height: 360px;
+  margin: 68px auto;
 }
 
 .newBook:nth-child(odd) {
@@ -86,7 +95,7 @@ form h2 {
   display: flex;
   height: 20px;
   font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
 }
 
@@ -119,28 +128,33 @@ form h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
-  width: 100%;
-  height: 40px;
-  border: 1px solid black;
+  font-family: "Roboto", sans-serif;
+  width: 98%;
+  height: 100px;
+  border: 3px solid rgb(100, 100, 100);
   padding-left: 15px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.date {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  font-size: 16px;
 }
 
 .nav ul {
   display: flex;
   list-style: none;
-  width: 300px;
+  width: 220px;
+  margin-right: 30px;
   height: 20px;
   gap: 6px;
-}
-
-.date {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 8px;
-  font-size: 16px;
 }
 
 .cont {
@@ -155,35 +169,37 @@ form h2 {
   font-weight: 700;
   font-size: 36px;
   margin-bottom: 48px;
-  margin-top: 150px;
+  margin-top: 60px;
 }
 
 .det {
   width: 30%;
   height: 150px;
   margin: 20px auto;
-  font-size: 18px;
-  line-height: 17px;
+  font-size: 20px;
+  line-height: 20px;
 }
 
 .det ul {
   display: flex;
   flex-direction: column;
   list-style-type: "- ";
-  margin-top: 10px;
-  margin-left: 20px;
+  margin-top: 30px;
+  margin-left: 40px;
 }
 
 .footer {
-  height: 30px;
-  width: 100%;
+  height: 100px;
+  width: 98%;
   position: fixed;
   bottom: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  border: 1px solid black;
+  font-family: "Roboto", sans-serif;
+  border: 3px solid rgb(100, 100, 100);
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   padding-left: 10px;
   display: flex;
   align-items: center;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }

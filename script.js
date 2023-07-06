@@ -1,54 +1,71 @@
 const container = document.querySelector('.container');
 const addBtn = document.querySelector('#add');
+
 let bookCollection = JSON.parse(localStorage.getItem('bookCollection')) || [];
 
-// Function to remove a book
-function removeBook(book) {
-  bookCollection = bookCollection.filter((b) => b !== book);
-  localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+
+  static addBook(title, author) {
+    const newBook = new Book(title, author);
+    bookCollection.push(newBook);
+    localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
+  }
+
+  static removeBook(book) {
+    bookCollection = bookCollection.filter((b) => b !== book);
+    localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
+  }
 }
 
-// Function to display all books in the collection
-function displayBooks() {
+const displayBooks = (container) => {
   container.innerHTML = '';
   bookCollection.forEach((book) => {
     const newBook = document.createElement('div');
     newBook.classList.add('newBook');
-    newBook.innerHTML = `<p>${book.title} by ${book.author}</p><button class="remove">Remove</button>`;
+    newBook.innerHTML = `<p>${book.title} by ${book.author}</p>
+                          <button class="remove">Remove</button>`;
     container.appendChild(newBook);
 
-    // Adding event listener to the "Remove" button
     const removeBtn = newBook.querySelector('.remove');
     removeBtn.addEventListener('click', () => {
-      removeBook(book);
+      Book.removeBook(book);
       newBook.remove();
     });
   });
-}
+};
 
-// Function to add a new book
-function addBook(title, author) {
-  const newBook = { title, author };
-  bookCollection.push(newBook);
-  localStorage.setItem('bookCollection', JSON.stringify(bookCollection));
-  displayBooks();
-}
+displayBooks(container);
 
-// Add an event listener to the "Add" button
-addBtn.addEventListener('click', () => {
+addBtn.addEventListener('click', (event) => {
+  event.preventDefault();
   const titleInput = document.querySelector('#title');
   const authorInput = document.querySelector('#author');
   const title = titleInput.value;
   const author = authorInput.value;
 
-  addBook(title, author);
+  if (title === '' && author === '') {
+    return;
+  }
+  Book.addBook(title, author);
+  displayBooks(container);
 
-  // Clear the input fields
   titleInput.value = '';
   authorInput.value = '';
 });
 
-displayBooks();
+const dates = document.querySelectorAll('.date');
+dates.forEach((date) => {
+  const today = new Date();
+  const time = today.toLocaleTimeString();
+  const day = today.toLocaleDateString('en-us', {
+    year: 'numeric', month: 'long', day: 'numeric',
+  });
+  date.textContent = `${day} ${time}`;
+});
 
 const links = document.querySelectorAll('.links'); /// create array of element objects
 links.forEach((link) => { // loop through them
